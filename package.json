@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/calvi-business-software/assign-reviewers-to-pull-requests/issues"
   },
-  "homepage": "https://github.com/calvi-business-software/assign-reviewers-to-pull-requests#readme"
+  "homepage": "https://github.com/calvi-business-software/assign-reviewers-to-pull-requests#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^4.0.0"
+  }
 }
