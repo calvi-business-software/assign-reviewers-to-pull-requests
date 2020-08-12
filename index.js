@@ -9,7 +9,7 @@ try {
 
   // pull_request > user > id / login
 
-  const token = core.getInput('githubToken');
+  const token = core.getInput('ghToken');
   const octokit = github.getOctokit(token);
 
   var teams = octokit.teams.listForAuthenticatedUser.get();
