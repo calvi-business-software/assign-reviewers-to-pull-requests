@@ -12,7 +12,9 @@ try {
   const token = core.getInput('ghToken');
   const octokit = github.getOctokit(token);
 
-  var teams = octokit.teams.listForAuthenticatedUser.get();
+  console.log(token);
+
+  var teams = octokit.teams.listForAuthenticatedUser();
 
   console.log(teams);
 
