@@ -14,7 +14,7 @@ try {
 
   console.log(token);
 
-  var teams = octokit.teams.listForAuthenticatedUser();
+  var teams = await octokit.teams.listForAuthenticatedUser();
 
   console.log(teams);
 
