@@ -7,6 +7,20 @@ try {
 
   // TODO: add implementation
 
+  // pull_request > user > id / login
+
+  const token = core.getInput('githubToken');
+  const octokit = github.getOctokit(token);
+
+  var teams = octokit.teams.listForAuthenticatedUser.get();
+
+  console.log(teams);
+
+  foreach (team in teams)
+  {
+    console.log(team);
+  }
+
 } catch (error) {
   core.setFailed(error.message);
 }
