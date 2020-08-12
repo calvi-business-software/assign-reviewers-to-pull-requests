@@ -1,0 +1,20 @@
+{
+  "name": "assign-reviewers-to-pull-requests",
+  "version": "1.0.0",
+  "description": "Use this action to assign reviewers to pull requests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calvi-business-software/assign-reviewers-to-pull-requests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calvi-business-software/assign-reviewers-to-pull-requests/issues"
+  },
+  "homepage": "https://github.com/calvi-business-software/assign-reviewers-to-pull-requests#readme"
+}
