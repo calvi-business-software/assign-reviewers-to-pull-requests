@@ -1,8 +1,8 @@
 name: 'Assign reviewers to pull request'
 description: 'Use this action to assign reviewers to pull requests'
 inputs:
-  ghToken:
-    description: 'GitHub token'
+  ghUserToken:
+    description: 'GitHub user token'
     required: true    
 runs:
   using: 'node12'

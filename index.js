@@ -4,12 +4,11 @@ const github = require('@actions/github');
 async function run() {
   try {
     // Init octokit
-    const token = core.getInput('ghToken');
+    const token = core.getInput('ghUserToken');
     const octokit = github.getOctokit(token);
 
     // Get payload
     const payload = github.context.payload;
-    // const payload = JSON.stringify(github.context.payload, undefined, 2)
     console.log(`payload: ${payload}`);
 
     // Get info from payload
@@ -46,7 +45,7 @@ async function run() {
       }
     }
 
-    // Define reviewers
+    // Set reviewers
     var reviewers = [... new Set(teamMembers.map(member => member.login))];
     var teamReviewers = teams.map(team => team.slug);
     console.log(`reviewers: '${reviewers}'`);
