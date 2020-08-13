@@ -7,14 +7,15 @@ async function run() {
     const token = core.getInput('ghToken');
     const octokit = github.getOctokit(token);
 
-    // Get info from payload
+    // Get payload
     const payload = JSON.stringify(github.context.payload, undefined, 2)
+    console.log(`payload: ${payload}`);
+
+    // Get info from payload
     var login = payload.sender.login;
     var org = payload.organization.login;
     var repo = payload.repository.name;
     var pullNumber = payload.pull_request.number;
-
-    // Debug statements
     console.log(`login: '${login}'`)
     console.log(`org: '${org}'`)
     console.log(`repo: '${repo}'`)
@@ -47,8 +48,6 @@ async function run() {
     // Define reviewers
     var reviewers = [... new Set(teamMembers.map(member => member.login))];
     var teamReviewers = teams.map(team => team.slug);
-
-    // Debug statements
     console.log(`reviewers: '${reviewers}'`);
     console.log(`teamReviewers: '${teamReviewers}'`);
 
