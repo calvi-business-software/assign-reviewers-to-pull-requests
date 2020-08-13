@@ -8,7 +8,8 @@ async function run() {
     const octokit = github.getOctokit(token);
 
     // Get payload
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
+    const payload = github.context.payload;
+    // const payload = JSON.stringify(github.context.payload, undefined, 2)
     console.log(`payload: ${payload}`);
 
     // Get info from payload
