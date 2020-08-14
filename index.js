@@ -4,7 +4,8 @@ const github = require('@actions/github');
 async function run() {
   try {
     // Init octokit
-    const ghRepoToken = core.getInput('ghRepoToken');
+    // const ghRepoToken = core.getInput('ghRepoToken');
+    const ghRepoToken = github.token;
     const ghUserToken = core.getInput('ghUserToken');
     const repoOctokit = github.getOctokit(ghRepoToken);
     const userOctokit = github.getOctokit(ghUserToken);
