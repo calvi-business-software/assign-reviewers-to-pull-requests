@@ -4,7 +4,7 @@ inputs:
   ghRepoToken:
     description: 'GitHub repo token'
     required: true
-    default: '${{ secrets.GITHUB_TOKEN }}'
+    default: ${{ secrets.GITHUB_TOKEN }}
   ghUserToken:
     description: 'GitHub user token with permission admin:org:read:org'
     required: true
