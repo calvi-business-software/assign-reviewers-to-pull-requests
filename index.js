@@ -4,8 +4,10 @@ const github = require('@actions/github');
 async function run() {
   try {
     // Init octokit
-    const token = core.getInput('ghUserToken');
-    const octokit = github.getOctokit(token);
+    const ghRepoToken = core.getInput('ghRepoToken');
+    const ghUserToken = core.getInput('ghUserToken');
+    const repoOctokit = github.getOctokit(ghRepoToken);
+    const userOctokit = github.getOctokit(ghUserToken);
 
     // Get payload
     const payload = github.context.payload;
@@ -22,7 +24,7 @@ async function run() {
     console.log(`pullNumber: '${pullNumber}'`)
 
     // Get teams for org
-    var orgTeams = await octokit.teams.list({
+    var orgTeams = await userOctokit.teams.list({
       org: org
     });
     var orgTeams = orgTeams.data;
@@ -33,7 +35,7 @@ async function run() {
     for (var index in orgTeams) {
       var team = orgTeams[index];
 
-      var members = await octokit.teams.listMembersInOrg({
+      var members = await userOctokit.teams.listMembersInOrg({
         org: org,
         team_slug: team.slug
       });
@@ -52,7 +54,7 @@ async function run() {
     console.log(`teamReviewers: '${teamReviewers}'`);
 
     // Request reviewers
-    await octokit.pulls.requestReviewers({
+    await repoOctokit.pulls.requestReviewers({
       owner: org,
       repo: repo,
       pull_number: pullNumber,
@@ -61,7 +63,7 @@ async function run() {
     });
 
     // Add assignee
-    await octokit.issues.addAssignees({
+    await repoOctokit.issues.addAssignees({
       owner: org,
       repo: repo,
       issue_number: pullNumber,

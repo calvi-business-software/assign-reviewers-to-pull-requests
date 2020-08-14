@@ -9,15 +9,21 @@ Business rules:
 
 ## Inputs
 
+### `ghRepoToken`
+
+**Required** The GitHub repo token.
+
+Set to `${{ secrets.GITHUB_TOKEN }}`
+
 ### `ghUserToken`
 
 **Required** The GitHub user token.
 
 The user token is needed because the teams endpoints from GitHub don't allow server-to-server requests (using ${{ secrets.GITHUB_TOKEN }}). For more information, see: https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests
 
-The user token needs scopes:
-* repo > public_repo
-* admin:org > read:org
+The user token needs scopes `admin:org > read:org`
+
+Guide for creating a user token: https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
 
 ## Example usage
 
@@ -35,6 +41,7 @@ jobs:
     steps:
       - name: Assign reviewers to pull request
         uses: calvi-business-software/assign-reviewers-to-pull-requests@v1
-        env:
+        with:
+          ghRepoToken: ${{ secrets.GITHUB_TOKEN }}
           ghUserToken: ${{ secrets.GH_USER_TOKEN_ASSIGN_REVIEWERS }}
 ```
