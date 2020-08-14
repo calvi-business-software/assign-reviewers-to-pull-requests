@@ -3,9 +3,9 @@
 Use this action to assign reviewers to pull requests
 
 Business rules:
-* Request reviews from all team mates of the pull request user
-* Request reviews from all teams of the pull request user
-* Set the pull request user as assignee
+* Requests reviews from all team mates of the pull request user
+* Requests reviews from all teams of the pull request user
+* Sets the pull request user as assignee
 
 ## Inputs
 
@@ -21,8 +21,10 @@ The user token needs scopes:
 
 ## Example usage
 
+`.github/workflows/pull-request.yml`
+
 ```yaml
-name: pull-request-opened
+name: pull-request
 on:
   pull_request:
     types: [opened]
@@ -34,5 +36,5 @@ jobs:
       - name: Assign reviewers to pull request
         uses: calvi-business-software/assign-reviewers-to-pull-requests@v1
         env:
-          GH_USER_TOKEN: ${{ secrets.GH_USER_TOKEN_ASSIGN_REVIEWERS }}
+          ghUserToken: ${{ secrets.GH_USER_TOKEN_ASSIGN_REVIEWERS }}
 ```
