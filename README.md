@@ -15,13 +15,15 @@ Business rules:
 
 Set to `${{ secrets.GITHUB_TOKEN }}`
 
+See: https://docs.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token
+
 ### `ghUserToken`
 
 **Required** The GitHub user token.
 
 The user token is needed because the teams endpoints from GitHub don't allow server-to-server requests (using ${{ secrets.GITHUB_TOKEN }}). For more information, see: https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests
 
-The user token needs scopes `admin:org > read:org`
+The user token needs scopes `admin:org:read:org`
 
 Guide for creating a user token: https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
 
