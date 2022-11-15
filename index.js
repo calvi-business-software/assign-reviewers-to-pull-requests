@@ -67,7 +67,16 @@ async function run() {
       issue_number: pullNumber,
       assignees: login
     });    
-  
+
+    // Add labels
+    // A label should be added per team the user is part of.
+    await octokit.issues.addLabels({
+        owner: org,
+        repo: repo,
+        issue_number: pullNumber,
+        labels: teamReviewers
+    });    
+
   } catch (error) {
     core.setFailed(error.message);
   }
