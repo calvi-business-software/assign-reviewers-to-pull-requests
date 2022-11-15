@@ -75,7 +75,7 @@ async function run() {
         repo: repo,
         issue_number: pullNumber,
         labels: teamReviewers
-    });
+    });    
 
   } catch (error) {
     core.setFailed(error.message);
