@@ -6,6 +6,7 @@ Business rules:
 * Requests reviews from all team mates of the pull request user
 * Requests reviews from all teams of the pull request user
 * Sets the pull request user as assignee
+* Add a team label to the pull request
 
 ## Inputs
 
